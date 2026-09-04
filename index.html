@@ -35,9 +35,12 @@
         </div>
       </div>
 
-      <div class="terminal-card" aria-label="Trading automation dashboard preview">
+      <div class="terminal-card" aria-label="Interactive trading automation dashboard preview">
         <div class="terminal-top"><span>MARKET AUTOMATION</span><span class="live"><i></i> LIVE</span></div>
-        <div class="market-head"><div><small>NIFTY 50</small><strong>25,412.80</strong></div><div class="gain">+1.24%</div></div>
+        <div class="market-head">
+          <div><small>NIFTY 50</small><strong id="dashPrice">25,412.80</strong></div>
+          <div class="gain" id="dashChange">+0.00%</div>
+        </div>
         <div class="chart-wrap">
           <svg viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
             <path class="gridline" d="M0 40H600M0 90H600M0 140H600M0 190H600" />
@@ -45,8 +48,16 @@
             <path class="line" d="M0 170 C45 155 55 172 85 142 S135 120 160 135 S205 75 235 110 S280 105 305 70 S345 95 370 62 S420 88 450 45 S490 72 520 40 S565 64 600 18" />
           </svg>
         </div>
-        <div class="signal-row"><div><small>SIGNAL</small><strong class="green">BUY</strong></div><div><small>CONFIDENCE</small><strong>87%</strong></div><div><small>RISK</small><strong>LOW</strong></div></div>
-        <div class="status"><span class="status-dot"></span> Strategy engine active <span class="mono">momentum_v2</span></div>
+        <div class="signal-row">
+          <div><small>SIGNAL</small><strong class="green" id="dashSignal">BUY</strong></div>
+          <div><small>CONFIDENCE</small><strong id="dashConfidence">87%</strong></div>
+          <div><small>RISK</small><strong>LOW</strong></div>
+        </div>
+        <div class="status"><span class="status-dot"></span><span id="engineStatus">Strategy engine active</span><span class="mono" id="dashTime">--:--:--</span></div>
+        <div class="dashboard-controls">
+          <button class="dash-button" id="engineToggle" type="button">Pause engine</button>
+          <button class="dash-button secondary" id="simulateSignal" type="button">Simulate signal</button>
+        </div>
       </div>
     </section>
 
@@ -89,6 +100,7 @@
   </main>
 
   <footer class="footer wrap"><span>© 2026 Priyansh Gheewala</span><span>Designed for finance × technology</span></footer>
+  <script src="dashboard.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
